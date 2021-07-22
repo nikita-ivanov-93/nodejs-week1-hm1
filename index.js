@@ -5,8 +5,6 @@ const util = require("util");
 const readdir = util.promisify(fs.readdir);
 const stat = util.promisify(fs.stat);
 const copyFile = util.promisify(fs.copyFile);
-const access = util.promisify(fs.access);
-const mkdir = util.promisify(fs.mkdir);
 
 const oldDir = process.argv[2];
 const newDir = process.argv[3];
