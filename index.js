@@ -19,9 +19,9 @@ fs.access(newDir, (err)=> {
         console.log(`Проблема с созданием новой папки ${newDir}`);
         return;
       };
-      readDir(oldDir);
     })
   };
+  readDir(oldDir);
 })
 const readDir = (dir) => {
   fs.readdir(dir, (err, files) => {
@@ -50,18 +50,18 @@ const readDir = (dir) => {
                 };
               })
             };
-          })
-          const oldPath = path.join(__dirname, localBase);
-          const newPath = path.join(__dirname, newDirName, item);
-          fs.access(newPath, (err)=> {
-            if (err) {
-              fs.copyFile(oldPath, newPath, (err) => {
-                if (err) {
-                  console.log(`Не удалось скопировать файл ${newDirName}`);
-                  return;
-                }
-              })
-            }
+            const oldPath = path.join(__dirname, localBase);
+            const newPath = path.join(__dirname, newDirName, item);
+            fs.access(newPath, (err)=> {
+              if (err) {
+                fs.copyFile(oldPath, newPath, (err) => {
+                  if (err) {
+                    console.log(`Не удалось скопировать файл ${newDirName}`);
+                    return;
+                  }
+                })
+              }
+            })
           })
         }
       })
