@@ -39,7 +39,7 @@ const readDir = (dir) => {
         if (state.isDirectory()) {
           readDir(localBase);
         } else {
-          const firstSymbol = item[0];
+          const firstSymbol = item[0].toUpperCase();
           const newDirName = `${newDir}/${firstSymbol}`;
           fs.access(newDirName, (err)=> {
             if (err) {
