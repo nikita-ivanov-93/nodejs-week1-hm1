@@ -31,7 +31,7 @@ if (!fs.existsSync(newDir)) {
         if (state.isDirectory()) {
           readDir(localBase);
         } else {
-          const firstSymbol = item[0];
+          const firstSymbol = item[0].toUpperCase();
           const newDirName = `${newDir}/${firstSymbol}`
           if (!fs.existsSync(newDirName)) {
             fs.mkdirSync(newDirName);
